@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import InstructorsCard from "./InstructorsCard";
 import SectionTitle from "../../Components/SectionTitle";
+import { Helmet } from 'react-helmet-async';
+
 
 
 const Instructors = () => {
@@ -14,6 +16,9 @@ const Instructors = () => {
     }, [])
     return (
         <section>
+            <Helmet>
+                <title>Language Learning | All Instructors</title>
+            </Helmet>
             <SectionTitle heading={'meet our instructors'}></SectionTitle>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
                 {

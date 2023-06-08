@@ -7,7 +7,7 @@ const NavBar = () => {
         <li> <Link to={'/instructors'}>Instructors</Link> </li>
         <li> <Link to={'/classes'}>classes</Link> </li>
         <li> <Link to={'/'}>dashboard</Link> </li>
-        <li> <Link to={'/'}>login</Link> </li>
+        <li> <Link to={'/login'}>login</Link> </li>
     </>
 
     return (

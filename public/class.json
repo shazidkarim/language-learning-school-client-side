@@ -1,0 +1,110 @@
+[
+    {
+        "classId": 1,
+        "image": "https://www.shutterstock.com/image-vector/vector-colorful-hanging-cardboard-tags-260nw-447932674.jpg",
+        "className": "Beginner's English",
+        "instructorName": "John Smith",
+        "availableSeats": 10,
+        "price": 50,
+        "numStudents": 8
+    },
+    {
+        "classId": 2,
+        "image": "https://m.media-amazon.com/images/I/51gsTMC5BEL._SL500_.jpg",
+        "className": "Intermediate Spanish",
+        "instructorName": "Maria Rodriguez",
+        "availableSeats": 8,
+        "price": 60,
+        "numStudents": 5
+    },
+    {
+        "classId": 3,
+        "image": "https://m.media-amazon.com/images/I/51KDBB2nqlL._SL500_.jpg",
+        "className": "French for Beginners",
+        "instructorName": "Sophie Dupont",
+        "availableSeats": 12,
+        "price": 55,
+        "numStudents": 10
+    },
+    {
+        "classId": 4,
+        "image": "https://covers.storytel.com/jpg-640/6610000299171.8bcc201c-0bd1-428e-8053-b5d5248bbe5d?quality=70",
+        "className": "German Conversation",
+        "instructorName": "Hans Mueller",
+        "availableSeats": 5,
+        "price": 70,
+        "numStudents": 3
+    },
+    {
+        "classId": 5,
+        "image": "https://m.media-amazon.com/images/I/61JxHUglODS._AC_UF1000,1000_QL80_.jpg",
+        "className": "Japanese Writing",
+        "instructorName": "Yuki Tanaka",
+        "availableSeats": 10,
+        "price": 65,
+        "numStudents": 7
+    },
+    {
+        "classId": 6,
+        "image": "https://www.accartbooks.com/app/uploads/books/1599609600/9780789208705-04-1-351x500.jpg",
+        "className": "Chinese Calligraphy",
+        "instructorName": "Li Wei",
+        "availableSeats": 15,
+        "price": 55,
+        "numStudents": 12
+    },
+    {
+        "classId": 7,
+        "image": "https://images-na.ssl-images-amazon.com/images/I/81tox4ly9bL._AC_UL600_SR600,600_.jpg",
+        "className": "Russian Grammar",
+        "instructorName": "Ivan Petrov",
+        "availableSeats": 7,
+        "price": 75,
+        "numStudents": 5
+    },
+    {
+        "classId": 8,
+        "image": "https://m.media-amazon.com/images/I/41LwlZ9MoKL._SL500_.jpg",
+        "className": "Italian Pronunciation",
+        "instructorName": "Giovanni Rossi",
+        "availableSeats": 9,
+        "price": 60,
+        "numStudents": 6
+    },
+    {
+        "classId": 9,
+        "image": "https://images.booksense.com/images/178/081/9798686081178.jpg",
+        "className": "Arabic Writing",
+        "instructorName": "Ahmed Khalil",
+        "availableSeats": 10,
+        "price": 65,
+        "numStudents": 8
+    },
+    {
+        "classId": 10,
+        "image": "https://images-eu.ssl-images-amazon.com/images/I/61QyIEoKjSL._AC_UL600_SR600,600_.jpg",
+        "className": "Korean Conversation",
+        "instructorName": "Ji-hye Park",
+        "availableSeats": 6,
+        "price": 70,
+        "numStudents": 4
+    },
+    {
+        "classId": 11,
+        "image": "https://m.media-amazon.com/images/I/616fd+rV3bL._AC_UF1000,1000_QL80_.jpg",
+        "className": "Portuguese for Travel",
+        "instructorName": "João Silva",
+        "availableSeats": 12,
+        "price": 50,
+        "numStudents": 9
+    },
+    {
+        "classId": 12,
+        "image": "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale/jackets/9781472592002.jpg",
+        "className": "Spanish Culture and History",
+        "instructorName": "Alejandro González",
+        "availableSeats": 8,
+        "price": 60,
+        "numStudents": 6
+    }
+]

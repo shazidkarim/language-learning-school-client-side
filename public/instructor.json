@@ -1,0 +1,110 @@
+[
+    {
+        "instructorId": 1,
+        "image": "instructor1.jpg",
+        "name": "John Smith",
+        "email": "john.smith@example.com",
+        "numClassesTaken": 1,
+        "classesTaken": "Beginner's English",
+        "numStudents": 8
+    },
+    {
+        "instructorId": 2,
+        "image": "instructor2.jpg",
+        "name": "Maria Rodriguez",
+        "email": "maria.rodriguez@example.com",
+        "numClassesTaken": 1,
+        "classesTaken": "Intermediate Spanish",
+        "numStudents": 5
+    },
+    {
+        "instructorId": 3,
+        "image": "instructor3.jpg",
+        "name": "Sophie Dupont",
+        "email": "sophie.dupont@example.com",
+        "numClassesTaken": 1,
+        "classesTaken": "French for Beginners",
+        "numStudents": 10
+    },
+    {
+        "instructorId": 4,
+        "image": "instructor4.jpg",
+        "name": "Hans Mueller",
+        "email": "hans.mueller@example.com",
+        "numClassesTaken": 1,
+        "classesTaken": "German Conversation",
+        "numStudents": 3
+    },
+    {
+        "instructorId": 5,
+        "image": "instructor5.jpg",
+        "name": "Yuki Tanaka",
+        "email": "yuki.tanaka@example.com",
+        "numClassesTaken": 1,
+        "classesTaken": "Japanese Writing",
+        "numStudents": 7
+    },
+    {
+        "instructorId": 6,
+        "image": "instructor6.jpg",
+        "name": "Li Wei",
+        "email": "li.wei@example.com",
+        "numClassesTaken": 1,
+        "classesTaken": "Chinese Calligraphy",
+        "numStudents": 12
+    },
+    {
+        "instructorId": 7,
+        "image": "instructor7.jpg",
+        "name": "Ivan Petrov",
+        "email": "ivan.petrov@example.com",
+        "numClassesTaken": 1,
+        "classesTaken": "Russian Grammar",
+        "numStudents": 5
+    },
+    {
+        "instructorId": 8,
+        "image": "instructor8.jpg",
+        "name": "Giovanni Rossi",
+        "email": "giovanni.rossi@example.com",
+        "numClassesTaken": 1,
+        "classesTaken": "Italian Pronunciation",
+        "numStudents": 6
+    },
+    {
+        "instructorId": 9,
+        "image": "instructor9.jpg",
+        "name": "Ahmed Khalil",
+        "email": "ahmed.khalil@example.com",
+        "numClassesTaken": 1,
+        "classesTaken": "Arabic Writing",
+        "numStudents": 8
+    },
+    {
+        "instructorId": 10,
+        "image": "instructor10.jpg",
+        "name": "Ji-hye Park",
+        "email": "ji-hye.park@example.com",
+        "numClassesTaken": 1,
+        "classesTaken": "Korean Conversation",
+        "numStudents": 4
+    },
+    {
+        "instructorId": 11,
+        "image": "instructor11.jpg",
+        "name": "João Silva",
+        "email": "joao.silva@example.com",
+        "numClassesTaken": 1,
+        "classesTaken": "Portuguese for Travel",
+        "numStudents": 9
+    },
+    {
+        "instructorId": 12,
+        "image": "instructor12.jpg",
+        "name": "Alejandro González",
+        "email": "alejandro.gonzalez@example.com",
+        "numClassesTaken": 1,
+        "classesTaken": "Spanish Culture and History",
+        "numStudents": 6
+    }
+]

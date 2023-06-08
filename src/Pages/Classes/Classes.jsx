@@ -1,20 +1,12 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../Components/SectionTitle";
 import ClassCardDetails from "./ClassCardDetails";
 import { Helmet } from "react-helmet-async";
+import useClasses from "../../Hooks/useclasses";
 
 
 const Classes = () => {
-    const [classes, setClasses] = useState([]);
-
-    useEffect(() => {
-        fetch('class.json')
-            .then(res => res.json())
-            .then(data => {
-                setClasses(data)
-            })
-            .catch(error => console.error(error));
-    }, []);
+    const [classes] = useClasses();
+    
     return (
         <section>
             <Helmet>

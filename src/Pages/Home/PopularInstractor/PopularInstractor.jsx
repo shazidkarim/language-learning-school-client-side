@@ -1,27 +1,19 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle";
 import InstructorData from "./InstructorData";
+import useInstructor from "../../../Hooks/useInstructor";
 
 const PopularInstractor = () => {
-    const [instractor , setInstractor] = useState([]);
-    
-    useEffect(()=>{
-        fetch('instructor.json')
-        .then(res=>res.json())
-        .then(data=>{
-            const sortedInstractor = data.sort((a, b) => b.numStudents - a.numStudents);
-            const topInstractor = sortedInstractor.slice(0, 6);
-            setInstractor(topInstractor)
-        })
-            .catch(error => console.error(error));
-    },[])
+    const [instractor] = useInstructor();
+    const sortedInstractor = instractor.sort((a, b) => b.numStudents - a.numStudents);
+    const topInstractor = sortedInstractor.slice(0, 6);
     return (
         <section>
             <SectionTitle heading={'Popular Instractor'}></SectionTitle>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
                 {
-                    instractor.map(data=>
+                    topInstractor.map(data=>
                         <InstructorData key={data.instructorId} data={data}></InstructorData>
                         )
                 }

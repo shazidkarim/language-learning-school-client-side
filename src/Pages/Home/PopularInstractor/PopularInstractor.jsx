@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle";
 import InstructorData from "./InstructorData";
 import useInstructor from "../../../Hooks/useInstructor";

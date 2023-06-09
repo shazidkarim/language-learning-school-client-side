@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import InstructorsCard from "./InstructorsCard";
 import SectionTitle from "../../Components/SectionTitle";
 import { Helmet } from 'react-helmet-async';
@@ -7,15 +6,10 @@ import useInstructor from "../../Hooks/useInstructor";
 
 
 const Instructors = () => {
-    const [instractor] = useInstructor();
-    // const [instractors, setInstractors] = useState([]);
-
-    // useEffect(() => {
-    //     fetch('instructor.json')
-    //         .then(res => res.json())
-    //         .then(data => setInstractors(data))
-    //         .catch(error => console.error(error));
-    // }, [])
+    const [instractor,loading] = useInstructor();
+    if(loading){
+        return <progress className="progress w-56"></progress>
+    }
     return (
         <section>
             <Helmet>

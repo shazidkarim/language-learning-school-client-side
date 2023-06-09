@@ -5,8 +5,10 @@ import useClasses from "../../Hooks/useclasses";
 
 
 const Classes = () => {
-    const [classes] = useClasses();
-    
+    const [classes,loading] = useClasses();
+    if(loading){
+        return <progress className="progress w-56"></progress>
+    }
     return (
         <section>
             <Helmet>

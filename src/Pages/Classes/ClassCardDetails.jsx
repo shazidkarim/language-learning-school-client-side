@@ -2,6 +2,9 @@
 
 const ClassCardDetails = ({data}) => {
     const {image,className,instructorName,availableSeats,price} = data;
+    const handleSelectClass =(data)=>{
+        console.log(data);
+    }
 
     return (
        <div className="card card-compact w-96 bg-base-100 shadow-xl mx-auto my-8">
@@ -12,7 +15,7 @@ const ClassCardDetails = ({data}) => {
                 <p>Avialable seat: {availableSeats}</p>
                 <p>Class Price: {price}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Select </button>
+                    <button onClick={()=>handleSelectClass(data)} className="btn btn-primary">Select </button>
                 </div>
             </div>
         </div>

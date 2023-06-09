@@ -1,29 +1,38 @@
-
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useContext } from "react";
-
-
-
+import Swal from "sweetalert2";
 
 const SignUp = () => {
-
-
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit,reset, watch, formState: { errors } } = useForm();
     const { createUser } = useContext(AuthContext);
-
-    const onSubmit = data => {
+    const navigate = useNavigate();
+    const onSubmit = (data) => {
         console.log(data);
         createUser(data.email, data.password)
-            .then(result => {
+            .then((result) => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-            })
+                reset();
+                Swal.fire({
+                    title: 'Sign Up Successfull',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+                
+            });
+            navigate('/');
     };
+
     const password = watch("password");
     const confirmPassword = watch("confirm");
+
     return (
         <>
             <Helmet>
@@ -31,7 +40,7 @@ const SignUp = () => {
             </Helmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
-                    <div className=" w-1/2 mr-5">
+                    <div className="w-1/2 mr-5">
                         <img src='' alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -61,7 +70,7 @@ const SignUp = () => {
                                         {...register("password", {
                                             required: true,
                                             minLength: 6,
-                                            maxLength: 20
+                                            pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
                                         })}
                                         name="password"
                                         placeholder="password"
@@ -73,6 +82,9 @@ const SignUp = () => {
                                     {errors.password?.type === "minLength" && (
                                         <p className="text-red-600 font-serif">Password must be at least 6 characters</p>
                                     )}
+                                    {errors.password?.type === "pattern" && (
+                                        <p className="text-red-600 font-serif">Password must contain at least one uppercase letter, one digit, and one special character</p>
+                                    )}
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -82,9 +94,7 @@ const SignUp = () => {
                                         type="password"
                                         {...register("confirm", {
                                             required: true,
-                                            minLength: 6,
-                                            maxLength: 20,
-                                            validate: (value) => value === password || "Passwords do not match"
+                                            validate: (value) => value === password || "Passwords do not match",
                                         })}
                                         name="confirm"
                                         placeholder="confirm password"
@@ -92,9 +102,6 @@ const SignUp = () => {
                                     />
                                     {errors.confirm?.type === "required" && (
                                         <span className="text-red-600 font-serif">This field is required</span>
-                                    )}
-                                    {errors.confirm?.type === "minLength" && (
-                                        <p className="text-red-600 font-serif">Password must be at least 6 characters</p>
                                     )}
                                     {errors.confirm?.type === "validate" && (
                                         <p className="text-red-600 font-serif">Passwords do not match</p>

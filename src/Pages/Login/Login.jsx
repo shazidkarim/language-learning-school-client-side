@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const Login = () => {
 
@@ -15,9 +16,19 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
         signIn(email, password)
-            .then(result => {
+        .then(result => {
                 const user = result.user;
                 console.log(user);
+                form.reset();
+                Swal.fire({
+                    title: 'Successfully log in',
+                    showClass: {
+                      popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                      popup: 'animate__animated animate__fadeOutUp'
+                    }
+                  })
             })
     }
     return (

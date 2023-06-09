@@ -9,14 +9,13 @@ const NavBar = () => {
     const handleLogOut = () =>{
         logOut()
         .then(()=>{})
-        .carch(error=>console.log(error))
+        .catch(error=>console.log(error))
     }
 
     const navOptions = <>
         <li> <Link to={'/'}>Home</Link> </li>
         <li> <Link to={'/instructors'}>Instructors</Link> </li>
         <li> <Link to={'/classes'}>classes</Link> </li>
-        <li> <Link to={'/'}>dashboard</Link> </li>
         {
             user? <>
             <li> <Link to={'/'}>dashboard</Link> </li>

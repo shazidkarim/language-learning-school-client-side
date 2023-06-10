@@ -4,9 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useContext } from "react";
 import Swal from "sweetalert2";
+import GoogleLogin from "../Shared/GoogleLogin/GoogleLogin";
 
 const SignUp = () => {
-    const { register, handleSubmit,reset, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const { createUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const onSubmit = (data) => {
@@ -16,30 +17,30 @@ const SignUp = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 const saveUser = { name: data.name, email: data.email }
-                fetch('http://localhost:5000/users',{
-                    method:'POST',
-                    headers:{
-                        'content-type':'application/json'
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
                     },
-                    body:JSON.stringify(saveUser)
+                    body: JSON.stringify(saveUser)
                 })
-                .then(res=>res.json())
-                .then(data=>{
-                    if(data.insertedId){
-                        reset();
-                Swal.fire({
-                    title: 'Sign Up Successfull',
-                    showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
-                    },
-                    hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp'
-                    }
-                });
-                    }
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            reset();
+                            Swal.fire({
+                                title: 'Sign Up Successfull',
+                                showClass: {
+                                    popup: 'animate__animated animate__fadeInDown'
+                                },
+                                hideClass: {
+                                    popup: 'animate__animated animate__fadeOutUp'
+                                }
+                            });
+                        }
+                    })
             });
-            navigate('/');
+        navigate('/');
     };
 
     const password = watch("password");
@@ -134,10 +135,11 @@ const SignUp = () => {
                             <div>
                                 <p className='text-danger'></p>
                             </div>
-                            <div className='m-auto text-center mb-5'>
-                                <button className='btn btn-primary mt-3'>sign in with google</button>
+                            <div className='m-auto w-full text-center mb-5'>
+                                <GoogleLogin></GoogleLogin>
                             </div>
                             <p className='p-4 text-center'>New to Toy Market? Please <Link className='font-bold text-primary' to={'/login'}>Login</Link></p>
+
                         </div>
                     </div>
                 </div>

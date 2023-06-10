@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { FaGoogle } from "react-icons/fa";
+import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 import GoogleLogin from "../Shared/GoogleLogin/GoogleLogin";
 
 const Login = () => {
@@ -13,6 +13,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleLogin = async (data) => {
         try {
@@ -31,10 +32,14 @@ const Login = () => {
                     popup: 'animate__animated animate__fadeOutUp'
                 }
             });
-            navigate(from, {replace: true});
+            navigate(from, { replace: true });
         } catch (error) {
             console.log(error);
         }
+    };
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
     };
 
     return (
@@ -68,13 +73,22 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input
-                                        type="password"
-                                        {...register("password", { required: true })}
-                                        name='password'
-                                        placeholder="password"
-                                        className="input input-bordered"
-                                    />
+                                    <div className="relative">
+                                        <input
+                                            type={showPassword ? "text" : "password"}
+                                            {...register("password", { required: true })}
+                                            name='password'
+                                            placeholder="password"
+                                            className="input input-bordered pr-12"
+                                        />
+                                        <button
+                                            type="button"
+                                            className="absolute inset-y-0 right-0 px-3 flex items-center"
+                                            onClick={togglePasswordVisibility}
+                                        >
+                                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                        </button>
+                                    </div>
                                     {errors.password && <span className="text-red-600 font-serif">This field is required</span>}
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
@@ -89,7 +103,7 @@ const Login = () => {
                                 <p className='text-danger'></p>
                             </div>
                             <div className='m-auto w-full text-center mb-5'>
-                               <GoogleLogin></GoogleLogin>
+                                <GoogleLogin></GoogleLogin>
                             </div>
                             <p className='p-4 text-center'>New to Toy Market? Please <Link className='font-bold text-primary' to={'/signup'}>Sign Up</Link></p>
                         </div>

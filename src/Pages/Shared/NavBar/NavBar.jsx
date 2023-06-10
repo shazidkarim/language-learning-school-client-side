@@ -18,14 +18,14 @@ const NavBar = () => {
         <li> <Link to={'/'}>Home</Link> </li>
         <li> <Link to={'/instructors'}>Instructors</Link> </li>
         <li> <Link to={'/classes'}>classes</Link> </li>
-        <li> <Link to={'/dashboard/myclass'}><button>
+        <li> <Link to={'/'}><button>
             fvo class
             <div className="badge badge-secondary">+{cart?.length || 0}</div>
         </button></Link> </li>
 
         { user ? <>
-                <li> <Link to={'/dashboard'}>Dashboard</Link> </li>
-                <img referrerPolicy="no-referrer" className="mt-2">{user?.photoURL}</img>
+                <li> <Link to={'/'}>Dashboard</Link> </li>
+                <li><img src={user?.photoURL} alt="Profile" className="w-16 rounded-full" /></li>
                 <li><button onClick={handleLogOut}>logout</button></li> </> : <>
                 <li> <Link to={'/login'}>login</Link> </li> </>
         }

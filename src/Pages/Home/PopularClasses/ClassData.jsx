@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const ClassData = ({ data }) => {
@@ -11,7 +12,7 @@ const ClassData = ({ data }) => {
                 <p>{availableSeats}</p>
                 <p>{price}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <Link to={'/classes'}><button className="btn btn-primary">Buy Now</button></Link>
                 </div>
             </div>
         </div>

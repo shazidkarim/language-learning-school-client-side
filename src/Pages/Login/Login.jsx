@@ -4,6 +4,8 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { FaGoogle } from "react-icons/fa";
+import GoogleLogin from "../Shared/GoogleLogin/GoogleLogin";
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
@@ -86,8 +88,8 @@ const Login = () => {
                             <div>
                                 <p className='text-danger'></p>
                             </div>
-                            <div className='m-auto text-center mb-5'>
-                                <button className='btn btn-primary mt-3'>sign in with google</button>
+                            <div className='m-auto w-full text-center mb-5'>
+                               <GoogleLogin></GoogleLogin>
                             </div>
                             <p className='p-4 text-center'>New to Toy Market? Please <Link className='font-bold text-primary' to={'/signup'}>Sign Up</Link></p>
                         </div>

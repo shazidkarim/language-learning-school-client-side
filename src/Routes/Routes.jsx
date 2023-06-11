@@ -13,6 +13,7 @@ import MyClass from "../Pages/DashBoard/MyClass";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 import AddClass from "../Pages/DashBoard/AddClass/AddClass";
 import ManageClass from "../Pages/DashBoard/ManageClass/ManageClass";
+import Payment from "../Pages/DashBoard/Payment/Payment";
 
 
   export const router = createBrowserRouter([
@@ -61,6 +62,10 @@ import ManageClass from "../Pages/DashBoard/ManageClass/ManageClass";
         {
           path:'manageclass',
           element:<ManageClass></ManageClass>
+        },
+        {
+          path:'payment',
+          element:<Payment></Payment>
         },
       ]
     },

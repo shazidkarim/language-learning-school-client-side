@@ -13,7 +13,7 @@ const { refetch, data: cart = [] } = useQuery({
     enabled: !loading,
     queryFn: async () => {
         const res = await axiosSecure(`/myclass?email=${user?.email}`)
-        console.log('res from axios', res)
+        // console.log('res from axios', res)
         return res.data;
     },
 })

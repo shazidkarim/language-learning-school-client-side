@@ -16,7 +16,7 @@ const AddClass = () => {
         fetch(img_hosting_url, {
             method: 'POST',
             headers: {
-                'cache-control': 'no-cache' // Add this header to prevent caching
+                'cache-control': 'no-cache'
               },
             body: formData
         })
@@ -46,52 +46,88 @@ const AddClass = () => {
         })
     }
     return (
-        <div className="w-full p-8">
-            <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-                <h2 className="text-3xl">Add A Class</h2>
-                <div className="form-control w-full">
-                    <label className="label">
-                        <span className="label-text">Class Name</span>
-                    </label>
-                    <input type="text" name='className' placeholder="Type here"  {...register("className", { required: true, maxLength: 80 })} className="input input-bordered w-full" />
-                </div>
-                <div className="form-control w-full my-4">
-                    <label className="label">
-                        <span className="label-text">Item Image*</span>
-                    </label>
-                    <input type="file" name='image' {...register("image", { required: true })} className="file-input file-input-bordered w-full " />
-                </div>
-                <div className="form-control w-full">
-                    <label className="label">
-                        <span className="label-text">Instructor Name</span>
-                    </label>
-                    <input type="text" name='instructorName' placeholder="Type here" {...register("instructorName", { required: true, maxLength: 80 })} className="input input-bordered w-full" />
-                </div>
-                <div className="form-control w-full">
-                    <label className="label">
-                        <span className="label-text">Instructor email</span>
-                    </label>
-                    <input type="text" name='email' placeholder="Type here" {...register("email", { required: true, maxLength: 80 })} className="input input-bordered w-full" />
-                </div>
-                <div className="form-control w-full">
-                    <label className="label">
-                        <span className="label-text">avialable seats</span>
-                    </label>
-                    <input type="text" name='availableSeats' placeholder="Type here" {...register("availableSeats", { required: true, maxLength: 80 })} className="input input-bordered w-full" />
-                </div>
-                <div className="form-control w-full">
-                    <label className="label">
-                        <span className="label-text">Price </span>
-                    </label>
-                    <input type="text" name='price' placeholder="Type here" {...register("price", { required: true, maxLength: 80 })} className="input input-bordered w-full" />
-                </div>
-                <div className="form-control w-full text-center mt-8">
-                    <button className="btn btn-outline">
-                        <input type="submit" value="Add" />
-                    </button>
-                </div>
-            </form>
-        </div>
+        <div className="w-full p-8 bg-gray-100">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+          <h2 className="text-3xl">Add A Class</h2>
+          <div className="form-control w-full">
+            <label className="label text-gray-700">
+              <span className="label-text">Class Name</span>
+            </label>
+            <input
+              type="text"
+              name="className"
+              placeholder="Type here"
+              {...register("className", { required: true, maxLength: 80 })}
+              className="input input-bordered w-full focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
+          <div className="form-control w-full my-4">
+            <label className="label text-gray-700">
+              <span className="label-text">Item Image*</span>
+            </label>
+            <input
+              type="file"
+              name="image"
+              {...register("image", { required: true })}
+              className="file-input file-input-bordered w-full"
+            />
+          </div>
+          <div className="form-control w-full">
+            <label className="label text-gray-700">
+              <span className="label-text">Instructor Name</span>
+            </label>
+            <input
+              type="text"
+              name="instructorName"
+              placeholder="Type here"
+              {...register("instructorName", { required: true, maxLength: 80 })}
+              className="input input-bordered w-full focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
+          <div className="form-control w-full">
+            <label className="label text-gray-700">
+              <span className="label-text">Instructor email</span>
+            </label>
+            <input
+              type="text"
+              name="email"
+              placeholder="Type here"
+              {...register("email", { required: true, maxLength: 80 })}
+              className="input input-bordered w-full focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
+          <div className="form-control w-full">
+            <label className="label text-gray-700">
+              <span className="label-text">Available seats</span>
+            </label>
+            <input
+              type="text"
+              name="availableSeats"
+              placeholder="Type here"
+              {...register("availableSeats", { required: true, maxLength: 80 })}
+              className="input input-bordered w-full focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
+          <div className="form-control w-full">
+            <label className="label text-gray-700">
+              <span className="label-text">Price</span>
+            </label>
+            <input
+              type="text"
+              name="price"
+              placeholder="Type here"
+              {...register("price", { required: true, maxLength: 80 })}
+              className="input input-bordered w-full focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
+          <div className="form-control w-full text-center mt-8">
+            <button className="btn btn-primary">
+              <input type="submit" value="Add" />
+            </button>
+          </div>
+        </form>
+      </div>
+      
     );
    
 };

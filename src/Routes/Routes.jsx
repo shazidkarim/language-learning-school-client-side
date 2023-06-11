@@ -11,6 +11,8 @@ import PrivateRoute from "./PrivateRoute";
 import DashBoard from "../Layout/DashBoard";
 import MyClass from "../Pages/DashBoard/MyClass";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
+import AddClass from "../Pages/DashBoard/AddClass/AddClass";
+import ManageClass from "../Pages/DashBoard/ManageClass/ManageClass";
 
 
   export const router = createBrowserRouter([
@@ -51,6 +53,14 @@ import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
         {
           path:'allusers',
           element:<AllUsers></AllUsers>
+        },
+        {
+          path:'addclass',
+          element:<AddClass></AddClass>
+        },
+        {
+          path:'manageclass',
+          element:<ManageClass></ManageClass>
         },
       ]
     },

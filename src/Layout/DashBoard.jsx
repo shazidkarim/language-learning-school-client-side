@@ -20,8 +20,8 @@ const DashBoard = () => {
                     {
                         isAdmin ? <>
                             <li> <Link to={'/dashboard/myclass'}> <FaShoppingCart></FaShoppingCart>  admin home </Link> </li>
-                            <li> <Link to={'/dashboard/history'}> <FaWallet></FaWallet> Manage Classes </Link> </li>
-                            <li> <Link to={'/dashboard/enrolled'}> <FaBookOpen></FaBookOpen> Add a class    </Link> </li>
+                            <li> <Link to={'/dashboard/manageclass'}> <FaWallet></FaWallet> Manage Classes </Link> </li>
+                            <li> <Link to={'/dashboard/addclass'}> <FaBookOpen></FaBookOpen> Add a class    </Link> </li>
                             <li> <Link to={'/dashboard/allusers'}> <FaBookOpen></FaBookOpen> Manage Ussers   </Link> </li>
                             </> : <>
                             <li> <Link to={'/dashboard/myclass'}> <FaShoppingCart></FaShoppingCart> My Classes </Link> </li>

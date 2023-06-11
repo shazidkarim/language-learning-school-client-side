@@ -1,14 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import { FaTrashAlt, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const AllUsers = () => {
+    const [axiosSecure] = useAxiosSecure();
+    const queryClient = useQueryClient(); // Get the queryClient instance
+    const { data: users = [] } = useQuery(['users'], async () => {
+        const res = await axiosSecure.get('/users');
+        return res.data;
+    });
 
-    const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/users')
-        return res.json();
-    })
     const handleMakeAdmin = (user) => {
         fetch(`http://localhost:5000/users/admin/${user._id}`, {
             method: 'PATCH'
@@ -17,17 +20,18 @@ const AllUsers = () => {
             .then(data => {
                 console.log(data);
                 if (data.modifiedCount) {
-                    refetch();
+                    queryClient.invalidateQueries('users'); // Invalidate the users query
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
                         title: `${user.name} is an admin now!`,
                         showConfirmButton: false,
                         timer: 1500
-                    })
+                    });
                 }
-            })
-    }
+            });
+    };
+
     const handleDelete = (user) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -41,22 +45,21 @@ const AllUsers = () => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:5000/users/admin/${user._id}`, {
                     method: 'DELETE',
-
               })
-              .then(res=>res.json())
-              .then(data=>{
-                if(data.deletedCount > 0){
-                    refetch();
+              .then(res => res.json())
+              .then(data => {
+                if (data.deletedCount > 0) {
+                    queryClient.invalidateQueries('users'); // Invalidate the users query
                     Swal.fire(
                         'Deleted!',
                         'Your file has been deleted.',
                         'success'
-                      )
+                    );
                 }
-              })
+              });
             }
-          })
-    }
+          });
+    };
 
     return (
         <div className="w-full">
@@ -80,19 +83,38 @@ const AllUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user, index) => <tr key={user._id}>
-                                <th>{index + 1}</th>
-                                <td>{user.name} </td>
-                                <td>{user.email}</td>
-                                <td>{
-                                    user.role === 'admin' ? 'admin' : <button onClick={() => handleMakeAdmin(user)} className="btn bg-red-200 btn-ghost btn-xs"> <FaUserShield></FaUserShield> make admin</button>
-                                }
-
-                                </td>
-                                <td> <button onClick={() => handleDelete(user)} className="btn bg-red-200 btn-ghost btn-xs"> <FaTrashAlt></FaTrashAlt> delete</button></td>
-                            </tr>)
+                            users.map((user, index) => (
+                                <tr key={user._id}>
+                                    <th>{index + 1}</th>
+                                    <td>{user.name}</td>
+                                    <td>{user.email}</td>
+                                    <td>
+                                        {user.role === 'admin' ? (
+                                            'admin'
+                                        ) : (
+                                            <button
+                                                onClick={() => handleMakeAdmin(user)}
+                                                className="btn bg-red-200 btn-ghost btn-xs"
+                                            >
+                                                <FaUserShield />
+                                                {' '}
+                                                make admin
+                                            </button>
+                                        )}
+                                    </td>
+                                    <td>
+                                        <button
+                                            onClick={() => handleDelete(user)}
+                                            className="btn bg-red-200 btn-ghost btn-xs"
+                                        >
+                                            <FaTrashAlt />
+                                            {' '}
+                                            delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))
                         }
-
                     </tbody>
                 </table>
             </div>

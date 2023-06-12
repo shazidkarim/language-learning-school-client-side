@@ -28,7 +28,7 @@ const ClassCardDetails = ({ data }) => {
                 email: user.email
             };
 
-            fetch("http://localhost:5000/myclass", {
+            fetch("https://summer-camp-school-server-side-sable.vercel.app/myclass", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

@@ -4,7 +4,7 @@ const useInstructor = ()=>{
     const [instractor , setInstractor] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
-        fetch('http://localhost:5000/instructor')
+        fetch('https://summer-camp-school-server-side-sable.vercel.app/instructor')
         .then(res=>res.json())
         .then(data=>{
             setInstractor(data)

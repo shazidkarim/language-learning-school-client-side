@@ -6,7 +6,7 @@ const ManageClass = () => {
     const [showModal, setShowModal] = useState(false); // State to control the modal visibility
 
     useEffect(() => {
-        fetch("http://localhost:5000/addclass")
+        fetch("https://summer-camp-school-server-side-sable.vercel.app/addclass")
             .then((response) => response.json())
             .then((data) => {
                 setClasses(data);

@@ -7,7 +7,7 @@ const Main = () => {
     const location = useLocation();
     console.log(location);
     return (
-        <div>
+        <div className="bg-gray-100">
             <NavBar></NavBar>
             <Outlet></Outlet>
             <Footer></Footer>

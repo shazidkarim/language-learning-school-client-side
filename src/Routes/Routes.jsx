@@ -14,6 +14,10 @@ import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 import AddClass from "../Pages/DashBoard/AddClass/AddClass";
 import ManageClass from "../Pages/DashBoard/ManageClass/ManageClass";
 import Payment from "../Pages/DashBoard/Payment/Payment";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import MyAddedClass from "../Pages/DashBoard/MyAddedClass/MyAddedClass";
+import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
+import MyEnrolledClass from "../Pages/DashBoard/MyEnrolledClass/MyEnrolledClass";
 
 
   export const router = createBrowserRouter([
@@ -60,6 +64,10 @@ import Payment from "../Pages/DashBoard/Payment/Payment";
           element:<AddClass></AddClass>
         },
         {
+          path:'myaddclass',
+          element:<MyAddedClass></MyAddedClass>
+        },
+        {
           path:'manageclass',
           element:<ManageClass></ManageClass>
         },
@@ -67,6 +75,18 @@ import Payment from "../Pages/DashBoard/Payment/Payment";
           path:'payment',
           element:<Payment></Payment>
         },
+        {
+          path:'paymenthistory',
+          element:<PaymentHistory></PaymentHistory>
+        },
+        {
+          path:'myenrolledclass',
+          element:<MyEnrolledClass></MyEnrolledClass>
+        },
       ]
+    },
+    {
+      path:'*',
+      element:<ErrorPage></ErrorPage>
     },
   ]);

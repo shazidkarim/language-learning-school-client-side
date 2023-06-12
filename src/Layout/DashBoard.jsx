@@ -4,7 +4,7 @@ import useAdmin from "../Hooks/useAdmin";
 
 const DashBoard = () => {
     // const isAdmin = true;
-    const [isAdmin] = useAdmin();
+    const [isAdmin,isInstructor] = useAdmin();
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -19,15 +19,20 @@ const DashBoard = () => {
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                     {
                         isAdmin ? <>
-                            <li> <Link to={'/dashboard/myclass'}> <FaShoppingCart></FaShoppingCart>  admin home </Link> </li>
                             <li> <Link to={'/dashboard/manageclass'}> <FaWallet></FaWallet> Manage Classes </Link> </li>
-                            <li> <Link to={'/dashboard/addclass'}> <FaBookOpen></FaBookOpen> Add a class    </Link> </li>
                             <li> <Link to={'/dashboard/allusers'}> <FaBookOpen></FaBookOpen> Manage Ussers   </Link> </li>
-                            </> : <>
+                            </> : 
+                            isInstructor ? <>
+                            <li> <Link to={'/dashboard/addclass'}> <FaBookOpen></FaBookOpen> Add a class</Link> </li>
+                             <li> <Link to={'/dashboard/myaddclass'}> <FaShoppingCart></FaShoppingCart> My Classes </Link></li>
+                            </> 
+                            :
+                            <>
                             <li> <Link to={'/dashboard/myclass'}> <FaShoppingCart></FaShoppingCart> My Classes </Link> </li>
-                            <li> <Link to={'/dashboard/history'}> <FaWallet></FaWallet> Payment History </Link> </li>
-                            <li> <Link to={'/dashboard/enrolled'}> <FaBookOpen></FaBookOpen> My Enrolled class  </Link> </li></>
+                            <li> <Link to={'/dashboard/paymenthistory'}> <FaWallet></FaWallet> Payment History </Link> </li>
+                            <li> <Link to={'/dashboard/myenrolledclass'}> <FaBookOpen></FaBookOpen> My Enrolled class  </Link> </li></>
                     }
+                  
 
 
                     <div className="divider"></div>

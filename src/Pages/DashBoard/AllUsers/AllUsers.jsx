@@ -31,6 +31,25 @@ const AllUsers = () => {
                 }
             });
     };
+    const handleMakeInstructor = (user) => {
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount) {
+                    queryClient.invalidateQueries('users'); // Invalidate the users query
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an instructor now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            });
+    };
 
     const handleDelete = (user) => {
         Swal.fire({
@@ -101,6 +120,18 @@ const AllUsers = () => {
                                                 make admin
                                             </button>
                                         )}
+                                        {user.role === 'instructor' ? (
+                                            'instructor'
+                                        ) : (
+                                            <button
+                                                onClick={() => handleMakeInstructor(user)}
+                                                className="btn bg-red-200 btn-ghost btn-xs ms-4"
+                                            >
+                                                <FaUserShield />
+                                                {' '}
+                                                make instructor
+                                            </button>
+                                        )}
                                     </td>
                                     <td>
                                         <button
@@ -112,7 +143,7 @@ const AllUsers = () => {
                                             delete
                                         </button>
                                     </td>
-                                </tr>
+                                </tr> 
                             ))
                         }
                     </tbody>

@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useCart from "../../../Hooks/useCart";
+import useAdmin from "../../../Hooks/useAdmin";
 
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [isAdmin,isInstructor] = useAdmin();
     const [cart] = useCart();
 
     const handleLogOut = () => {
@@ -13,27 +15,37 @@ const NavBar = () => {
             .then(() => {})
             .catch(error => console.log(error))
     }
+    const renderFvoButton = () => {
+        if (isAdmin || isInstructor) {
+          return null; // Do not render the button for admin or instructor
+        }
+        return (
+          <Link to={'/dashboard/myclass'}>
+            <button>
+              fvo class
+              <div className="badge badge-secondary">+{cart?.length || 0}</div>
+            </button>
+          </Link>
+        );
+      }
 
     const navOptions = <>
-        <li> <Link to={'/'}>Home</Link> </li>
-        <li> <Link to={'/instructors'}>Instructors</Link> </li>
-        <li> <Link to={'/classes'}>classes</Link> </li>
-        <li> <Link to={'/dashboard/myclass'}><button>
-            fvo class
-            <div className="badge badge-secondary">+{cart?.length || 0}</div>
-        </button></Link> </li>
+        <li className=" text-lg font-semibold"> <Link to={'/'}>Home</Link> </li>
+        <li  className=" text-lg font-semibold"> <Link to={'/instructors'}>Instructors</Link> </li>
+        <li  className=" text-lg font-semibold"> <Link to={'/classes'}>classes</Link> </li>
+        <li  className=" text-lg font-semibold"> {renderFvoButton()} </li>
 
         { user ? <>
-                <li> <Link to={'/dashboard'}>Dashboard</Link> </li>
-                <li><img src={user?.photoURL} alt="Profile" className="w-16 rounded-full"  title={user?.displayName} /></li>
-                <li><button onClick={handleLogOut}>logout</button></li> </> : <>
-                <li> <Link to={'/login'}>login</Link> </li> </>
+                <li  className=" text-lg font-semibold"> <Link to={'/dashboard'}>Dashboard</Link> </li>
+                <li  className=" text-lg font-semibold"><img src={user?.photoURL} alt="Profile" className="w-16 rounded-full"  title={user?.displayName} /></li>
+                <li  className=" text-lg font-semibold"><button onClick={handleLogOut}>logout</button></li> </> : <>
+                <li  className=" text-lg font-semibold"> <Link to={'/login'}>login</Link> </li> </>
         }
     </>
 
     return (
         <>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-gray-400">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -43,7 +55,7 @@ const NavBar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">Language school</a>
+                    <a className="btn btn-ghost normal-case text-xl italic">Language school</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

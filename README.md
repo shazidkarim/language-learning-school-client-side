@@ -1,6 +1,6 @@
 Project name: Language Learning School
 
-overview:-
+overview:--
 
 i use react for this website.
 in this website a student can find their wishing language to learn carefully.

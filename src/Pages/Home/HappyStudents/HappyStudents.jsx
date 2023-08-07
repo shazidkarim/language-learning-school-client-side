@@ -1,5 +1,4 @@
 import SectionTitle from "../../../Components/SectionTitle";
-import bgimg from '../../../../src/assets/bg-img1.jpg';
 import john from '../../../../src/assets/john.jpg';
 import medonnan from '../../../../src/assets/medonna.jpg';
 import sarah from '../../../../src/assets/sarah.jpg';

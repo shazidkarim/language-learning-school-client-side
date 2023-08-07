@@ -1,0 +1,8 @@
+.bg5{
+    background-image: url('../../../assets/bg-img6.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}

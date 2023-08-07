@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const InstructorData = ({ data }) => {
@@ -11,7 +12,7 @@ const InstructorData = ({ data }) => {
                 <p className="font-serif">Classes Taken: {numClassesTaken}</p>
                 <p className="font-serif font-semibold">class name:  {classesTaken}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">see classes</button>
+                    <Link to="/instructors"> <button className="btn btn-primary">see classes</button>  </Link>
                 </div>
             </div>
         </div>
